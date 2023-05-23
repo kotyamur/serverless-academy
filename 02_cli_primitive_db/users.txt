@@ -1,0 +1,47 @@
+[
+  {
+    "user": "kat",
+    "gender": "female",
+    "age": 30
+  },
+  {
+    "user": "kateryna",
+    "gender": "male",
+    "age": 16
+  },
+  {
+    "user": "kate",
+    "gender": "female",
+    "age": 32
+  },
+  {
+    "user": "natan",
+    "gender": "male",
+    "age": 20
+  },
+  {
+    "user": "marta",
+    "gender": "female",
+    "age": 56
+  },
+  {
+    "user": "serg",
+    "gender": "male",
+    "age": 45
+  },
+  {
+    "user": "natali",
+    "gender": "female",
+    "age": 34
+  },
+  {
+    "user": "vova",
+    "gender": "male",
+    "age": 13
+  },
+  {
+    "user": "cat",
+    "gender": "female",
+    "age": 12
+  }
+]
