@@ -5,20 +5,24 @@ const path = require("path");
 const usersPath = path.join(__dirname, "users.txt");
 
 const getAllUsers = async () => {
-  const data = (await fs.readFile(usersPath, "utf8")) || "[]";
-  return JSON.parse(data);
+    const data = (await fs.readFile(usersPath, "utf8")) || "[]";
+    return JSON.parse(data);
 };
 
 const addUser = async ({ user, gender, age }) => {
-  const users = await getAllUsers();
+    const users = await getAllUsers();
+    console.log(users);
   const newUser = {
     user,
     gender,
     age,
   };
-  users.push(newUser);
+  console.log(newUser);
+    
+    // await fs.appendFile(usersPath, JSON.stringify(newUser, null, 2));
+    users.push(newUser);
   await fs.writeFile(usersPath, JSON.stringify(users, null, 2));
-  return newUser;
+//   return newUser;
 };
 
 const newUserData = {}
@@ -66,6 +70,10 @@ const getUsersFromDB = () => {
     .then(async (answers) => {
         if (answers.toSearchDB) {
             const users = await getAllUsers();
+            if (!users) {
+                console.log("There is no users in DB"); 
+                return;
+            }
             console.log(users);
             searchUserInDB(users);
       } else {
