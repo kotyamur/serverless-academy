@@ -10,19 +10,14 @@ const getAllUsers = async () => {
 };
 
 const addUser = async ({ user, gender, age }) => {
-    const users = await getAllUsers();
-    console.log(users);
-  const newUser = {
-    user,
-    gender,
-    age,
-  };
-  console.log(newUser);
-    
-    // await fs.appendFile(usersPath, JSON.stringify(newUser, null, 2));
-    users.push(newUser);
+  const users = await getAllUsers();
+    const newUser = {
+      user,
+      gender,
+      age,
+    };
+  users.push(newUser);
   await fs.writeFile(usersPath, JSON.stringify(users, null, 2));
-//   return newUser;
 };
 
 const newUserData = {}
@@ -53,7 +48,7 @@ const setUserInfo = () => {
         newUserData.gender = answers.gender;
         newUserData.age = answers.age;
         await addUser(newUserData);
-      main();
+        main();
     });
 };
 
@@ -68,14 +63,14 @@ const getUsersFromDB = () => {
       },
     ])
     .then(async (answers) => {
-        if (answers.toSearchDB) {
-            const users = await getAllUsers();
-            if (!users) {
-                console.log("There is no users in DB"); 
-                return;
-            }
-            console.log(users);
-            searchUserInDB(users);
+      if (answers.toSearchDB) {
+        const users = await getAllUsers();
+        if (!users) {
+            console.log("There is no users in DB"); 
+            return;
+        }
+        console.log(users);
+        searchUserInDB(users);
       } else {
         return;
       }
